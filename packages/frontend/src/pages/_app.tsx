@@ -37,6 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return <>
     <Head>
       <title>Nice Votes</title>
+      <link rel="icon" href="/favicon.png" />
     </Head>
     <NoSSR>
       <WagmiConfig client={wagmiClient}>
