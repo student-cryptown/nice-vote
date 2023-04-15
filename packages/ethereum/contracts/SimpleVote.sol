@@ -7,17 +7,27 @@ import "@openzeppelin/contracts/utils/Timers.sol";
 import "./VoteToken.sol";
 
 contract SimpleVote is Context {
-    OfferManagerInterface _offerManagerInterface;
+    OfferManager _offerManager;
     VoteToken _voteToken;
+    uint256 _voteIntmaxAsset;
 
     //TODO: optimization
     struct SimpleProposal {
+        address proposer;
         uint256 voteStart;
         uint256 voteEnd;
         string description;
         string[] voteOptions; //E.g: ["yes", "no", "abstain"]
-        uint256[] voteCount; //E.g: [yes, no, abstain]
+        uint256[] voteCounts; //E.g: [yes, no, abstain]
     }
+
+    event Voted(
+        bytes32 indexed proposalHash,
+        address indexed voter,
+        uint256 votecount,
+        uint256 voteOption
+    );
+
     event ProposalCreated(
         bytes32 indexed proposalHash,
         uint256 voteStart,
@@ -26,12 +36,14 @@ contract SimpleVote is Context {
         string[] voteOptions
     );
 
-    bytes32[] public proposalHashes;
-    mapping(bytes32 => SimpleProposal) public proposals;
+    bytes32[] private proposalHashes;
+    // mapping(bytes32 =>)
+    mapping(bytes32 => SimpleProposal) private proposals;
 
-    constructor(address offerManagerInterface, address voteToken) {
-        _offerManagerInterface = OfferManagerInterface(offerManagerInterface);
+    constructor(address offerManager, address voteToken, uint256 voteIntmaxAsset) {
+        _offerManager = OfferManager(offerManager);
         _voteToken = VoteToken(voteToken);
+        _voteIntmaxAsset = voteIntmaxAsset;
     }
 
     function hashProposal(
@@ -48,8 +60,10 @@ contract SimpleVote is Context {
     }
 
     function getProposalHashes(uint256 start, uint256 end) public view returns (bytes32[] memory) {
-        bytes32[] memory hashes = new bytes32[](end - start);
-        for (uint256 i = start; i < end; i++) {
+        require(start < end, "Invalid start and end");
+        uint256 trueEnd = end > proposalHashes.length ? proposalHashes.length : end;
+        bytes32[] memory hashes = new bytes32[](trueEnd - start);
+        for (uint256 i = start; i < trueEnd; i++) {
             hashes[i - start] = proposalHashes[i];
         }
         return hashes;
@@ -70,6 +84,7 @@ contract SimpleVote is Context {
         uint256[] memory voteCount = new uint256[](voteOptions.length);
         bytes32 proposalHash = hashProposal(voteStart, voteEnd, description);
         SimpleProposal memory proposal = SimpleProposal(
+            _msgSender(),
             voteStart,
             voteEnd,
             description,
@@ -81,10 +96,29 @@ contract SimpleVote is Context {
         emit ProposalCreated(proposalHash, voteStart, voteEnd, description, voteOptions);
     }
 
-    function vote(bytes32 proposalHash, uint256 voteCount, uint256 voteOption) public {
+    function vote(
+        bytes32 proposalHash,
+        bytes32 voterIntmaxAddress,
+        uint256 voteCount,
+        uint256 voteOption
+    ) public {
         require(isVoting(proposalHash), "Vote is not active");
         require(voteOption < proposals[proposalHash].voteOptions.length, "Invalid vote option");
-        _voteToken.burn(_msgSender(), voteCount);
-        proposals[proposalHash].voteCount[voteOption] += voteCount;
+
+        //TODO: Check if the voter has burned the vote token
+        //_offerManager.checkBurned(voterIntmaxAddress, _voteIntmaxAsset, voteCount);
+        uint256 offerId = _offerManager.register(
+            voterIntmaxAddress,
+            _voteIntmaxAsset,
+            voteCount,
+            address(this),
+            bytes32(_voteIntmaxAsset),
+            address(_voteToken),
+            voteCount
+        );
+        _offerManager.activate(offerId);
+
+        proposals[proposalHash].voteCounts[voteOption] += voteCount;
+        emit Voted(proposalHash, _msgSender(), voteCount, voteOption);
     }
 }
