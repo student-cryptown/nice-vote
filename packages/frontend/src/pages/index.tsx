@@ -1,6 +1,10 @@
-import { Button, Tabs, TabsContent, TabsList, TabsTrigger, TypographyH2, VoteCard } from "@/components";
+import { Tabs, TabsContent, TabsList, TabsTrigger, TypographyH2, VoteCard } from "@/components";
+import { useVoteHashes } from "@/hooks/useVoteHashes";
 
 export default function Home() {
+
+  const voteHashes = useVoteHashes();
+
   return (
     <>
       <div className="flex">
@@ -14,13 +18,6 @@ export default function Home() {
                 </TypographyH2>
               </div>
             </TabsContent>
-            <TabsContent value="your" className="p-0 rounded-none border-none">
-              <div className="text-center my-6">
-                <TypographyH2>
-                  Vote for you
-                </TypographyH2>
-              </div>
-            </TabsContent>
             <TabsContent value="finalized" className="p-0 rounded-none border-none">
               <div className="text-center my-6">
                 <TypographyH2>
@@ -31,137 +28,41 @@ export default function Home() {
             <div className="flex justify-center md:justify-end w-full mb-4">
               <TabsList>
                 <TabsTrigger value="open">Open</TabsTrigger>
-                <TabsTrigger value="your">Your</TabsTrigger>
                 <TabsTrigger value="finalized">Finalized</TabsTrigger>
               </TabsList>
             </div>
             <TabsContent value="open" className="p-0 rounded-none border-none">
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-                <VoteCard
-                  title="Best Ice Cream Flavor"
-                  description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-                  options={["Chocolate", "Vanilla", "Strawberry"]}
-                  votesCast={1420}
-                  author={{
-                    name: "moons14",
-                    avatar: "https://moons14.com/icon.png"
-                  }}
-                />
-                <VoteCard
-                  title="Best Ice Cream Flavor"
-                  description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-                  options={["Chocolate", "Vanilla", "Strawberry"]}
-                  votesCast={1420}
-                  author={{
-                    name: "moons14",
-                    avatar: "https://moons14.com/icon.png"
-                  }}
-                />
-                <VoteCard
-                  title="Best Ice Cream Flavor"
-                  description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-                  options={["Chocolate", "Vanilla", "Strawberry"]}
-                  votesCast={1420}
-                  author={{
-                    name: "moons14",
-                    avatar: "https://moons14.com/icon.png"
-                  }}
-                />
-                <VoteCard
-                  title="Best Ice Cream Flavor"
-                  description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-                  options={["Chocolate", "Vanilla", "Strawberry"]}
-                  votesCast={1420}
-                  author={{
-                    name: "moons14",
-                    avatar: "https://moons14.com/icon.png"
-                  }}
-                />
-                <VoteCard
-                  title="Best Ice Cream Flavor"
-                  description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-                  options={["Chocolate", "Vanilla", "Strawberry"]}
-                  votesCast={1420}
-                  author={{
-                    name: "moons14",
-                    avatar: "https://moons14.com/icon.png"
-                  }}
-                />
-                <VoteCard
-                  title="Best Ice Cream Flavor"
-                  description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-                  options={["Chocolate", "Vanilla", "Strawberry"]}
-                  votesCast={1420}
-                  author={{
-                    name: "moons14",
-                    avatar: "https://moons14.com/icon.png"
-                  }}
-                />
-                <VoteCard
-                  title="Best Ice Cream Flavor"
-                  description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-                  options={["Chocolate", "Vanilla", "Strawberry"]}
-                  votesCast={1420}
-                  author={{
-                    name: "moons14",
-                    avatar: "https://moons14.com/icon.png"
-                  }}
-                />
-                <VoteCard
-                  title="Best Ice Cream Flavor"
-                  description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-                  options={["Chocolate", "Vanilla", "Strawberry"]}
-                  votesCast={1420}
-                  author={{
-                    name: "moons14",
-                    avatar: "https://moons14.com/icon.png"
-                  }}
-                />
-                <VoteCard
-                  title="Best Ice Cream Flavor"
-                  description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-                  options={["Chocolate", "Vanilla", "Strawberry"]}
-                  votesCast={1420}
-                  author={{
-                    name: "moons14",
-                    avatar: "https://moons14.com/icon.png"
-                  }}
-                />
-                <VoteCard
-                  title="Best Ice Cream Flavor"
-                  description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-                  options={["Chocolate", "Vanilla", "Strawberry"]}
-                  votesCast={1420}
-                  author={{
-                    name: "moons14",
-                    avatar: "https://moons14.com/icon.png"
-                  }}
-                />
+                {voteHashes && voteHashes.length != 0 ? <>
+
+                  {voteHashes.map((voteHash, index) => {
+                    return (<VoteCard id={voteHash} key={index} showOpenOnly />)
+                  })}
+
+                </> : <>
+                  {[0, 0, 0, 0].map((_, _v) => {
+                    return (<div className="animate-pulse w-full h-40 bg-gray-100" key={_v + "loading"} />)
+                  })}
+                </>}
               </div>
-            </TabsContent>
-            <TabsContent value="your" className="p-0 rounded-none border-none">
             </TabsContent>
             <TabsContent value="finalized" className="p-0 rounded-none border-none">
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-                <VoteCard
-                  title="Best Ice Cream Flavor"
-                  description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-                  options={["Chocolate", "Vanilla", "Strawberry"]}
-                  votesCast={1420}
-                  author={{
-                    name: "moons14",
-                    avatar: "https://moons14.com/icon.png"
-                  }}
-                  finalized
-                  rate={45}
-                />
+                {voteHashes && voteHashes.length != 0 ? <>
+
+                  {voteHashes.map((voteHash, index) => {
+                    return (<VoteCard id={voteHash} key={index} showFinalizedOnly />)
+                  })}
+
+                </> : <>
+                  {[0, 0, 0, 0].map((_, _v) => {
+                    return (<div className="animate-pulse w-full h-40 bg-gray-100" key={_v + "loading"} />)
+                  })}
+                </>}
               </div>
             </TabsContent>
           </Tabs>
         </div>
-      </div>
-      <div className="w-full flex justify-center">
-        <Button size="lg" className="my-8">Search from all votes</Button>
       </div>
     </>
   )

@@ -1,45 +1,36 @@
-import { Avatar, AvatarImage, Progress, TypographyH3, TypographyP } from "@/components/ui"
-import { Vote } from "@/types/vote.type"
+import { TypographyH3, TypographyP } from "@/components/ui";
+import { useVote } from "@/hooks/useVote";
+import { extractTextBeforeNewline, sumArray } from "@/utils";
 
 export const VoteCard = ({
-  rate,
-  title,
-  shortDescription,
-  description,
-  votesCast,
-  author,
-  finalized = false
-}: Vote) => {
+  id, showOpenOnly = false, showFinalizedOnly = false
+}: { id: string, showOpenOnly?: boolean, showFinalizedOnly?: boolean }) => {
+
+  const vote = useVote(id)
+
+  const nowDatetime = new Date().getTime();
+
+  if (!vote) return <></>;
+  if (showOpenOnly && vote.voteEnd.toNumber() * 1000 < nowDatetime) return <></>;
+  if (showFinalizedOnly && vote.voteEnd.toNumber() * 1000 > nowDatetime) return <></>;
+
   return (<div>
     <div className="rounded-md border-2 border-gray-800 pt-4 cursor-pointer hover:-translate-y-1">
       <div className="px-4 pb-3">
-        <TypographyH3>
-          {title}
+        <TypographyH3 className="line-clamp-1">
+          {extractTextBeforeNewline(vote.description)}
         </TypographyH3>
         <TypographyP className="mt-2 line-clamp-3">
-          {shortDescription}
+          {vote.description}
         </TypographyP>
         <div className="flex items-center gap-2 justify-end mt-2">
           <div className="flex-1 flex items-center">
             <TypographyP>
-              {"Total votes cast : " + votesCast}
-            </TypographyP>
-          </div>
-          <div>
-            <Avatar className="w-10 h-10">
-              <AvatarImage src={author.avatar} />
-            </Avatar>
-          </div>
-          <div className="max-w-[33%] flex items-center line-clamp-1">
-            <TypographyP>
-              {author.name}
+              {"Total votes cast : " + sumArray(vote.voteCount.map((count) => count.toNumber()))}
             </TypographyP>
           </div>
         </div>
       </div>
-      {rate ?
-        <Progress value={rate} className="rounded-none rounded-b h-1.5" />
-        : ""}
     </div>
   </div>)
 }
