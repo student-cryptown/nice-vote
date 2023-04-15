@@ -27,7 +27,7 @@ export const VoteCard = ({
         <div className="flex items-center gap-2 justify-end mt-2">
           <div className="flex-1 flex items-center">
             <TypographyP>
-              {"Total votes cast : " + sumArray(vote.voteCount.map((count) => count.toNumber()))}
+              {"Total votes cast : " + sumArray(vote.voteCounts.map((count) => count.toNumber()))}
             </TypographyP>
           </div>
         </div>

@@ -20,7 +20,7 @@ export default function Vote() {
         <TypographyP className="text-right my-3">
           <>
             {"Voting Period : " + dataTimeToText(vote.voteStart)[0] + " ~ " + dataTimeToText(vote.voteEnd)[1]}<br></br>
-            {"Total votes cast : " + sumArray(vote.voteCount.map(v => v.toNumber()))}
+            {"Total votes cast : " + sumArray(vote.voteCounts.map(v => v.toNumber()))}
           </>
         </TypographyP>
         {vote.voteOptions.length == 2 ? <>
@@ -36,7 +36,9 @@ export default function Vote() {
             })}
           </div>
         </>}
-      </> : <></>
+      </> : <>
+        <div className="text-3xl text-center my-20">404 no found</div>
+      </>
     }
   </>)
 }

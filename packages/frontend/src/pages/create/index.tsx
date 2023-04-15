@@ -110,7 +110,7 @@ export default function CreateVote() {
     {isLoading ? <div className='mt-4 w-full h-40 flex items-center justify-center text-3xl animate-pulse bg-gray-200 mb-8'>
       Loading...
     </div> : <></>}
-    {!isSuccess ? <div className='mt-4 w-full h-40 flex items-center justify-center text-xl bg-gray-100 mb-8'>
+    {isSuccess ? <div className='mt-4 w-full h-40 flex items-center justify-center text-xl bg-gray-100 mb-8'>
       <div className="">
         <div className='text-center w-full mb-3'>
           Success<br></br>

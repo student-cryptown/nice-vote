@@ -4,7 +4,6 @@ import { useVoteHashes } from "@/hooks/useVoteHashes";
 export default function Home() {
 
   const voteHashes = useVoteHashes();
-
   return (
     <>
       <div className="flex">
@@ -34,8 +33,7 @@ export default function Home() {
             <TabsContent value="open" className="p-0 rounded-none border-none">
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
                 {voteHashes && voteHashes.length != 0 ? <>
-
-                  {voteHashes.map((voteHash, index) => {
+                  {voteHashes.slice().reverse().map((voteHash, index) => {
                     return (<VoteCard id={voteHash} key={index} showOpenOnly />)
                   })}
 
@@ -50,7 +48,7 @@ export default function Home() {
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
                 {voteHashes && voteHashes.length != 0 ? <>
 
-                  {voteHashes.map((voteHash, index) => {
+                  {voteHashes.slice().reverse().map((voteHash, index) => {
                     return (<VoteCard id={voteHash} key={index} showFinalizedOnly />)
                   })}
 

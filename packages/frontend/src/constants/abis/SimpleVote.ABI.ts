@@ -3,13 +3,13 @@ export default [
     "inputs": [
       {
         "internalType": "address",
-        "name": "offerManagerInterface",
+        "name": "offerManager",
         "type": "address"
       },
       {
-        "internalType": "address",
-        "name": "voteToken",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "voteIntmaxAsset",
+        "type": "uint256"
       }
     ],
     "stateMutability": "nonpayable",
@@ -53,6 +53,37 @@ export default [
     "type": "event"
   },
   {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "proposalHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "voter",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "votecount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "voteOption",
+        "type": "uint256"
+      }
+    ],
+    "name": "Voted",
+    "type": "event"
+  },
+  {
     "inputs": [
       {
         "internalType": "bytes32",
@@ -64,6 +95,11 @@ export default [
     "outputs": [
       {
         "components": [
+          {
+            "internalType": "address",
+            "name": "proposer",
+            "type": "address"
+          },
           {
             "internalType": "uint256",
             "name": "voteStart",
@@ -86,7 +122,7 @@ export default [
           },
           {
             "internalType": "uint256[]",
-            "name": "voteCount",
+            "name": "voteCounts",
             "type": "uint256[]"
           }
         ],
@@ -174,54 +210,6 @@ export default [
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "proposalHashes",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "name": "proposals",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "voteStart",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "voteEnd",
-        "type": "uint256"
-      },
-      {
-        "internalType": "string",
-        "name": "description",
-        "type": "string"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
         "name": "voteEnd",
         "type": "uint256"
       },
@@ -246,6 +234,11 @@ export default [
       {
         "internalType": "bytes32",
         "name": "proposalHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "voterIntmaxAddress",
         "type": "bytes32"
       },
       {
