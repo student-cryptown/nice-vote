@@ -10,13 +10,15 @@ export const AppHeader = () => {
           <TypographyH2>Nice Votes</TypographyH2>
         </div>
       </Link>
-      <div className="mt-2 md:mt-0 flex justify-center gap-6 items-center">
-        <Link href="/create">
-          <Button size="sm" shadow="lg">
+      <div className="mt-2 md:mt-0 sm:flex justify-center gap-6 items-center ">
+        <Link href="/create" className="flex justify-center">
+          <Button size="sm" shadow="lg" className="max-sm:mb-2">
             Create Vote
           </Button>
         </Link>
-        <ConnectButton accountStatus="avatar" />
+        <div className="flex justify-center">
+          <ConnectButton accountStatus="avatar" />
+        </div>
       </div>
     </div>
   );
