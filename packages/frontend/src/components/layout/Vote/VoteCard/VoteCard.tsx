@@ -1,27 +1,15 @@
 import { Avatar, AvatarImage, Progress, TypographyH3, TypographyP } from "@/components/ui"
+import { Vote } from "@/types/vote.type"
 
 export const VoteCard = ({
   rate,
   title,
   shortDescription,
   description,
-  options,
   votesCast,
   author,
   finalized = false
-}: {
-  title: string,
-  shortDescription: string,
-  description: string,
-  options: string[],
-  votesCast: number,
-  author: {
-    name: string,
-    avatar: string
-  },
-  finalized?: boolean
-  rate?: number
-}) => {
+}: Vote) => {
   return (<div>
     <div className="rounded-md border-2 border-gray-800 pt-4 cursor-pointer hover:-translate-y-1">
       <div className="px-4 pb-3">
