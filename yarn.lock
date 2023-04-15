@@ -460,6 +460,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@intmax/interoperability-contracts@file:../intmax-interoperability-plugin/contracts::locator=eth%40workspace%3Apackages%2Fethereum":
+  version: 0.1.0
+  resolution: "@intmax/interoperability-contracts@file:../intmax-interoperability-plugin/contracts#../intmax-interoperability-plugin/contracts::hash=42abfc&locator=eth%40workspace%3Apackages%2Fethereum"
+  dependencies:
+    dotenv: ^16.0.3
+  checksum: a7f84757d484ed0954b9b13e06e03b3d3d7ac12d11e83616148ed9156ae225be06c9d8654dd1fbfc5e69d6fafad8eba5403b04c6da3b14c2d699e343defd4fcb
+  languageName: node
+  linkType: hard
+
 "@metamask/eth-sig-util@npm:^4.0.0":
   version: 4.0.1
   resolution: "@metamask/eth-sig-util@npm:4.0.1"
@@ -1633,6 +1642,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv@npm:^16.0.3":
+  version: 16.0.3
+  resolution: "dotenv@npm:16.0.3"
+  checksum: afcf03f373d7a6d62c7e9afea6328e62851d627a4e73f2e12d0a8deae1cd375892004f3021883f8aec85932cd2834b091f568ced92b4774625b321db83b827f8
+  languageName: node
+  linkType: hard
+
 "elliptic@npm:6.5.4, elliptic@npm:^6.5.2, elliptic@npm:^6.5.4":
   version: 6.5.4
   resolution: "elliptic@npm:6.5.4"
@@ -1712,6 +1728,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "eth@workspace:packages/ethereum"
   dependencies:
+    "@intmax/interoperability-contracts": ../intmax-interoperability-plugin/contracts
     "@nomicfoundation/hardhat-toolbox": ^2.0.2
     hardhat: ^2.13.1
   languageName: unknown

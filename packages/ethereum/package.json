@@ -2,6 +2,7 @@
   "name": "eth",
   "version": "1.0.0",
   "devDependencies": {
+    "@intmax/interoperability-contracts": "../intmax-interoperability-plugin/contracts",
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "hardhat": "^2.13.1"
   }
