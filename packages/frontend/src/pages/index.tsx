@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <div className="flex">
         <div className="flex"></div>
-        <div className="w-full">
+        <div className="w-full my-0 py-0">
           <Tabs defaultValue="open" className="max-w-full mb-6">
             <TabsContent value="open" className="p-0 rounded-none border-none">
               <div className="text-center my-6">
@@ -28,7 +28,7 @@ export default function Home() {
                 </TypographyH2>
               </div>
             </TabsContent>
-            <div className="flex justify-end w-full mb-4">
+            <div className="flex justify-center md:justify-end w-full mb-4">
               <TabsList>
                 <TabsTrigger value="open">Open</TabsTrigger>
                 <TabsTrigger value="your">Your</TabsTrigger>
@@ -39,8 +39,8 @@ export default function Home() {
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
                 <VoteCard
                   title="Best Ice Cream Flavor"
-                  shortDescription="Choose your favorite ice cream flavor from the list below."
                   description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
+                  options={["Chocolate", "Vanilla", "Strawberry"]}
                   votesCast={1420}
                   author={{
                     name: "moons14",
@@ -49,9 +49,8 @@ export default function Home() {
                 />
                 <VoteCard
                   title="Best Ice Cream Flavor"
-                  shortDescription="Choose your favorite ice cream flavor from the list below."
                   description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-
+                  options={["Chocolate", "Vanilla", "Strawberry"]}
                   votesCast={1420}
                   author={{
                     name: "moons14",
@@ -60,9 +59,8 @@ export default function Home() {
                 />
                 <VoteCard
                   title="Best Ice Cream Flavor"
-                  shortDescription="Choose your favorite ice cream flavor from the list below."
                   description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-
+                  options={["Chocolate", "Vanilla", "Strawberry"]}
                   votesCast={1420}
                   author={{
                     name: "moons14",
@@ -71,9 +69,8 @@ export default function Home() {
                 />
                 <VoteCard
                   title="Best Ice Cream Flavor"
-                  shortDescription="Choose your favorite ice cream flavor from the list below."
                   description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-
+                  options={["Chocolate", "Vanilla", "Strawberry"]}
                   votesCast={1420}
                   author={{
                     name: "moons14",
@@ -82,9 +79,8 @@ export default function Home() {
                 />
                 <VoteCard
                   title="Best Ice Cream Flavor"
-                  shortDescription="Choose your favorite ice cream flavor from the list below."
                   description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-
+                  options={["Chocolate", "Vanilla", "Strawberry"]}
                   votesCast={1420}
                   author={{
                     name: "moons14",
@@ -93,9 +89,8 @@ export default function Home() {
                 />
                 <VoteCard
                   title="Best Ice Cream Flavor"
-                  shortDescription="Choose your favorite ice cream flavor from the list below."
                   description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-
+                  options={["Chocolate", "Vanilla", "Strawberry"]}
                   votesCast={1420}
                   author={{
                     name: "moons14",
@@ -104,9 +99,8 @@ export default function Home() {
                 />
                 <VoteCard
                   title="Best Ice Cream Flavor"
-                  shortDescription="Choose your favorite ice cream flavor from the list below."
                   description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-
+                  options={["Chocolate", "Vanilla", "Strawberry"]}
                   votesCast={1420}
                   author={{
                     name: "moons14",
@@ -115,9 +109,8 @@ export default function Home() {
                 />
                 <VoteCard
                   title="Best Ice Cream Flavor"
-                  shortDescription="Choose your favorite ice cream flavor from the list below."
                   description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-
+                  options={["Chocolate", "Vanilla", "Strawberry"]}
                   votesCast={1420}
                   author={{
                     name: "moons14",
@@ -126,9 +119,8 @@ export default function Home() {
                 />
                 <VoteCard
                   title="Best Ice Cream Flavor"
-                  shortDescription="Choose your favorite ice cream flavor from the list below."
                   description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-
+                  options={["Chocolate", "Vanilla", "Strawberry"]}
                   votesCast={1420}
                   author={{
                     name: "moons14",
@@ -137,9 +129,8 @@ export default function Home() {
                 />
                 <VoteCard
                   title="Best Ice Cream Flavor"
-                  shortDescription="Choose your favorite ice cream flavor from the list below."
                   description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
-
+                  options={["Chocolate", "Vanilla", "Strawberry"]}
                   votesCast={1420}
                   author={{
                     name: "moons14",
@@ -154,8 +145,8 @@ export default function Home() {
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
                 <VoteCard
                   title="Best Ice Cream Flavor"
-                  shortDescription="Choose your favorite ice cream flavor from the list below."
                   description="Summer is here and nothing beats the heat like a delicious scoop of ice cream. We want to know what's your all-time favorite flavor. Is it classic chocolate or something more adventurous like mint chocolate chip? Let your taste buds do the talking and choose the best flavor that satisfies your sweet tooth."
+                  options={["Chocolate", "Vanilla", "Strawberry"]}
                   votesCast={1420}
                   author={{
                     name: "moons14",

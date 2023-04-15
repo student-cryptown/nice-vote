@@ -22,8 +22,8 @@ export default function App({ Component, pageProps }: AppProps) {
   );
 
   const { connectors } = getDefaultWallets({
-    appName: 'My RainbowKit App',
-    projectId: 'YOUR_PROJECT_ID',
+    appName: 'Nice Votes',
+    projectId: 'Nice_Votes',
     chains
   });
 
@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return <>
     <Head>
-      <title>Nice QV</title>
+      <title>Nice Votes</title>
     </Head>
     <>
       <WagmiConfig client={wagmiClient}>
