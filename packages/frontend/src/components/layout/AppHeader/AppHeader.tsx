@@ -20,7 +20,12 @@ export const AppHeader = () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuLink className={cn([navigationMenuTriggerStyle(), "cursor-pointer"])}>
-              Open Voting
+              Open Votes
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink className={cn([navigationMenuTriggerStyle(), "cursor-pointer"])}>
+              Finalized Votes
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
