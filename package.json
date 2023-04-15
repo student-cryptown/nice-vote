@@ -1,0 +1,12 @@
+{
+  "name": "nice-qv",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/student-cryptown/nice-qv.git",
+  "author": "inaridiy <inainainariinainari@gmail.com>",
+  "license": "MIT",
+  "packageManager": "yarn@3.5.0",
+  "workspaces": [
+    "packages/*"
+  ]
+}
