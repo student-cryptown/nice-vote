@@ -681,10 +681,10 @@ __metadata:
 
 "@intmax/interoperability-contracts@file:../intmax-interoperability-plugin/contracts::locator=eth%40workspace%3Apackages%2Fethereum":
   version: 0.1.0
-  resolution: "@intmax/interoperability-contracts@file:../intmax-interoperability-plugin/contracts#../intmax-interoperability-plugin/contracts::hash=bdd990&locator=eth%40workspace%3Apackages%2Fethereum"
+  resolution: "@intmax/interoperability-contracts@file:../intmax-interoperability-plugin/contracts#../intmax-interoperability-plugin/contracts::hash=42abfc&locator=eth%40workspace%3Apackages%2Fethereum"
   dependencies:
     dotenv: ^16.0.3
-  checksum: d1c6173d4e1894fe575200cd47b09110d200fcfebee4c5f94150e0b996f70357441c64509de512367970b19cad2cede6a53cb43d17152e02ba6f1385bf891482
+  checksum: a7f84757d484ed0954b9b13e06e03b3d3d7ac12d11e83616148ed9156ae225be06c9d8654dd1fbfc5e69d6fafad8eba5403b04c6da3b14c2d699e343defd4fcb
   languageName: node
   linkType: hard
 
