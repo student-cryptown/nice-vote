@@ -1,6 +1,8 @@
-export function TypographyP({ children }: { children: string }) {
+import { cn } from "@/utils";
+
+export function TypographyP({ children, className = "" }: { children: string, className?: string }) {
   return (
-    <p className="leading-7 [&:not(:first-child)]:mt-6">
+    <p className={cn(["leading-7", className])}>
       {children}
     </p>
   )

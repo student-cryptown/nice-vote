@@ -1,4 +1,4 @@
-import { Button, TypographyP } from "@/components/ui"
+import { Button, TypographyH2, TypographyP } from "@/components/ui"
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -9,11 +9,11 @@ import {
 import { cn } from "@/utils"
 
 export const AppHeader = () => {
-  return (<div className="container mx-auto px-2 py-4 flex items-center">
+  return (<div className="container mx-auto px-4 py-4 flex items-center">
     <div>
-      <h2 className="mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+      <TypographyH2>
         Nice QV
-      </h2>
+      </TypographyH2>
     </div>
     <div className="flex-1">
       <NavigationMenu>

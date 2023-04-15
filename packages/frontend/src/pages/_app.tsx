@@ -23,7 +23,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       {/* header */}
       <AppHeader />
-      <Component {...pageProps} />
+      <div className='container mx-auto px-4'>
+        <Component {...pageProps} />
+      </div>
     </>
   </>
 }
