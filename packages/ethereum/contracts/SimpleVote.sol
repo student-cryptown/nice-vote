@@ -8,7 +8,6 @@ import "./VoteToken.sol";
 
 contract SimpleVote is Context {
     OfferManager _offerManager;
-    VoteToken _voteToken;
     uint256 _voteIntmaxAsset;
 
     //TODO: optimization
@@ -40,9 +39,8 @@ contract SimpleVote is Context {
     // mapping(bytes32 =>)
     mapping(bytes32 => SimpleProposal) private proposals;
 
-    constructor(address offerManager, address voteToken, uint256 voteIntmaxAsset) {
+    constructor(address offerManager, uint256 voteIntmaxAsset) {
         _offerManager = OfferManager(offerManager);
-        _voteToken = VoteToken(voteToken);
         _voteIntmaxAsset = voteIntmaxAsset;
     }
 
@@ -113,8 +111,8 @@ contract SimpleVote is Context {
             voteCount,
             address(this),
             bytes32(_voteIntmaxAsset),
-            address(_voteToken),
-            voteCount
+            address(0),
+            0
         );
         _offerManager.activate(offerId);
 
