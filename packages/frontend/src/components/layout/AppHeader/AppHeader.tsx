@@ -1,4 +1,4 @@
-import { TypographyH2 } from "@/components/ui"
+import { Button, TypographyH2 } from "@/components/ui"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import Link from "next/link"
 
@@ -12,6 +12,9 @@ export const AppHeader = () => {
       </div>
     </Link>
     <div className="mt-2 md:mt-0 flex justify-center gap-6 items-center">
+      <Link href="/create">
+        <Button size="sm">Create Vote</Button>
+      </Link>
       <ConnectButton accountStatus="avatar" />
     </div>
   </div>)

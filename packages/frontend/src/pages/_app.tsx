@@ -1,13 +1,14 @@
+import { Auth, NoSSR } from '@/components'
 import { AppHeader } from '@/components/layout/AppHeader'
 import '@/styles/globals.css'
 import {
-  getDefaultWallets,
   RainbowKitProvider,
+  getDefaultWallets,
 } from '@rainbow-me/rainbowkit'
 import '@rainbow-me/rainbowkit/styles.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { configureChains, createClient, WagmiConfig } from 'wagmi'
+import { WagmiConfig, configureChains, createClient } from 'wagmi'
 import { polygonZkEvmTestnet, scrollTestnet } from 'wagmi/chains'
 import { publicProvider } from 'wagmi/providers/public'
 
@@ -33,20 +34,19 @@ export default function App({ Component, pageProps }: AppProps) {
     provider
   })
 
-
   return <>
     <Head>
       <title>Nice Votes</title>
     </Head>
-    <>
+    <NoSSR>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
           <AppHeader />
           <div className='container mx-auto px-4'>
-            <Component {...pageProps} />
+            <Auth><Component {...pageProps} /></Auth>
           </div>
         </RainbowKitProvider>
       </WagmiConfig>
-    </>
+    </NoSSR>
   </>
 }

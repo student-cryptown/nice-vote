@@ -1,7 +1,11 @@
 import { Button, Input, Label, Textarea, TypographyH2 } from '@/components'
+import { useContractAddress } from '@/hooks/useContractAddress'
 import { formatDate } from '@/utils'
+import { BigNumber } from 'ethers'
 import { Plus } from 'lucide-react'
+import Link from 'next/link'
 import { useState } from 'react'
+import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 
 export default function CreateVote() {
 
@@ -18,9 +22,21 @@ export default function CreateVote() {
     votingEnds: null,
     options: []
   })
+  const contracts = useContractAddress();
+  const { config } = usePrepareContractWrite({
+    address: contracts?.VOTE.address,
+    abi: contracts?.VOTE.abi,
+    functionName: 'propose',
+    args: [
+      input.votingEnds ? BigNumber.from(Math.floor(input.votingEnds.getTime() / 1000)) : BigNumber.from(Math.floor(new Date().getTime() / 1000)),
+      input.title + (input.description ? "\n" + input.description : ""),
+      input.options
+    ]
+  })
+  const { data, isLoading, isSuccess, write } = useContractWrite(config)
 
   return (<>
-    <TypographyH2 className='text-center'>Create Vote</TypographyH2>
+    <TypographyH2 className='text-center mt-3'>Create Vote</TypographyH2>
     <div className="grid w-full items-center gap-1.5 my-5">
       <Label htmlFor="email-2">Title</Label>
       <Input type="email" placeholder="Title"
@@ -83,6 +99,27 @@ export default function CreateVote() {
       </div>
       <p className="text-sm text-slate-500">Set the options available for voting</p>
     </div>
-    <Button className='w-full mt-2' size="lg">Publish Vote!</Button>
+    <Button className='w-full mt-2' size="lg"
+      onClick={() => {
+        if (write && !isLoading && input.title && input.votingEnds && input.votingEnds.getTime() > new Date().getTime()) {
+          write()
+        } else {
+          alert("Please enter everything correctly.")
+        }
+      }}>Publish Vote!</Button>
+    {isLoading ? <div className='mt-4 w-full h-40 flex items-center justify-center text-3xl animate-pulse bg-gray-200 mb-8'>
+      Loading...
+    </div> : <></>}
+    {!isSuccess ? <div className='mt-4 w-full h-40 flex items-center justify-center text-xl bg-gray-100 mb-8'>
+      <div className="">
+        <div className='text-center w-full mb-3'>
+          Success<br></br>
+          It takes time for the process to complete.
+        </div>
+        <Link href="/" className='flex justify-center'>
+          <Button >Back home</Button>
+        </Link>
+      </div>
+    </div> : <></>}
   </>)
 }

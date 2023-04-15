@@ -1,4 +1,4 @@
-import { TypographyH2, TypographyH4, TypographyP } from "@/components";
+import { TypographyH2, TypographyP } from "@/components";
 import { useVote } from "@/hooks/useVote";
 import { dataTimeToText, extractTextBeforeNewline, sumArray } from "@/utils";
 import { useRouter } from "next/router";
@@ -36,11 +36,6 @@ export default function Vote() {
             })}
           </div>
         </>}
-        <TypographyH4 className="mt-6 text-center">
-          <>
-            Your balance is{" "}<strong>120</strong>{" "}tokens
-          </>
-        </TypographyH4>
       </> : <></>
     }
   </>)
