@@ -72,13 +72,10 @@ export default function Vote() {
                   key={index}
                   onClick={() => { !isFinalized ? handleVote(index) : () => void 0 }}
                   className={cn([
-                    "flex-1 h-36 font-bold relative rounded-md flex max-md:w-full my-2 items-center text-2xl",
+                    "flex-1 h-36 font-bold relative rounded-md flex max-md:w-full my-2 items-center text-2xl p-0",
                     isFinalized
-                      ? isLargest &&
-                        vote.voteCounts.map((v) => v.toNumber())[index] != 0
-                        ? "bg-purple-400"
-                        : "bg-gray-100"
-                      : "bg-gray-200 border-4 border-gray-200",
+                      ? "bg-gray-100"
+                      : "bg-gray-200",
                   ])}
                 >
                   <span className="z-20 w-full text-center relative">
@@ -114,11 +111,8 @@ export default function Vote() {
                   className={cn([
                     "flex-1 h-24 font-bold relative rounded-md w-full my-2 items-center justify-center text-xl",
                     isFinalized
-                      ? isLargest &&
-                        vote.voteCounts.map((v) => v.toNumber())[index] != 0
-                        ? "bg-purple-400"
-                        : "bg-gray-100"
-                      : "bg-gray-200 border-4 border-gray-200",
+                      ? "bg-gray-100"
+                      : "bg-gray-200",
                   ])}
                 >
                   <span className="z-20 w-full text-center relative">
@@ -126,7 +120,7 @@ export default function Vote() {
                     {isFinalized ? " : " + vote.voteCounts[index] : ""}
                   </span>
                   <div
-                    className={"h-24 z-0 bg-red-200 absolute top-[-4px] left-[-4px] rounded-md"}
+                    className={"h-24 z-0 bg-red-200 absolute top-0 left-0 rounded-md"}
                     style={{
                       width: `${Math.floor(
                         vote.voteCounts.map((v) => v.toNumber())[index] /
@@ -139,7 +133,8 @@ export default function Vote() {
             })}
           </div>
         </>
-      )}
+      )
+      }
     </>
   );
 }
