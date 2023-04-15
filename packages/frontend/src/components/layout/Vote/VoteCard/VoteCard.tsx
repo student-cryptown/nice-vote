@@ -29,10 +29,10 @@ export const VoteCard = ({
       <div className="rounded-md border-2 h-full border-gray-800 pt-4 cursor-pointer hover:-translate-y-1">
         <div className="px-4 pb-3 flex flex-col h-full ">
           <div className="flex-1">
-            <TypographyH3 className="line-clamp-1 break-all">
+            <TypographyH3 className="line-clamp-1">
               {extractTextBeforeNewline(vote.description)}
             </TypographyH3>
-            <TypographyP className="mt-2 line-clamp-3 break-all">
+            <TypographyP className="mt-2 line-clamp-3">
               {vote.description}
             </TypographyP>
           </div>
@@ -42,17 +42,16 @@ export const VoteCard = ({
                 {"Total votes cast : " + sumArray(vote.voteCounts.map((count) => count.toNumber()))}
               </TypographyP>
             </div>
-            <div className="flex gap-2 justify-end ">
-              <div>
-                <Avatar className="w-10 h-10">
-                  <AvatarImage src={"https://source.boringavatars.com/beam/120/" + (proposerName || vote.proposer)} />
-                </Avatar>
-              </div>
-              <div className="max-w-[33%] max-sm:hidden flex items-center line-clamp-1 bleak-all">
-                <TypographyP>
-                  {proposerName || vote.proposer}
-                </TypographyP>
-              </div>
+
+            <div>
+              <Avatar className="w-10 h-10">
+                <AvatarImage src={"https://source.boringavatars.com/beam/120/" + (proposerName || vote.proposer)} />
+              </Avatar>
+            </div>
+            <div className="max-w-[33%] flex items-center line-clamp-1">
+              <TypographyP>
+                {proposerName || vote.proposer}
+              </TypographyP>
             </div>
           </div>
         </div>
