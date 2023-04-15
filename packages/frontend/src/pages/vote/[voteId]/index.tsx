@@ -42,7 +42,7 @@ export default function Vote() {
         </> : <>
           <div className="my-6">
             {vote.options.map((option, index) => {
-              return (<button key={index} className="flex-1 h-16 font-bold bg-gray-200 border-4 border-gray-400 rounded-md md:flex max-md:w-full my-2 items-center justify-center text-xl hover:bg-gray-700 hover:text-white">{option}</button>)
+              return (<button key={index} className="flex-1 h-24 font-bold bg-gray-200 border-4 border-gray-400 rounded-md w-full my-2 items-center justify-center text-xl hover:bg-gray-700 hover:text-white">{option}</button>)
             })}
           </div>
         </>}
