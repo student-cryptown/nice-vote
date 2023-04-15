@@ -136,19 +136,18 @@ export default function Vote() {
         </>
       )
       }
-      {proposerName ? <div className="flex items-center gap-2 justify-end mt-4">
+      <div className="flex items-center gap-2 justify-end mt-4">
         <div>
           <Avatar className="w-10 h-10">
-            <AvatarImage src={"https://source.boringavatars.com/beam/120/" + proposerName} />
+            <AvatarImage src={"https://source.boringavatars.com/beam/120/" + (proposerName || vote.proposer)} />
           </Avatar>
         </div>
         <div className="max-w-[33%] flex items-center line-clamp-1">
           <TypographyP>
-            {proposerName || ""}
+            {proposerName || vote.proposer}
           </TypographyP>
         </div>
       </div>
-        : <></>}
     </>
   );
 }
