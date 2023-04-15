@@ -1,4 +1,4 @@
-import { Button, TypographyH2, TypographyP } from "@/components/ui"
+import { TypographyH2 } from "@/components/ui"
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -7,6 +7,7 @@ import {
   navigationMenuTriggerStyle
 } from "@/components/ui/NavigationMenu"
 import { cn } from "@/utils"
+import { ConnectButton } from "@rainbow-me/rainbowkit"
 
 export const AppHeader = () => {
   return (<div className="container mx-auto px-4 py-4 flex items-center">
@@ -32,9 +33,7 @@ export const AppHeader = () => {
       </NavigationMenu>
     </div>
     <div>
-      <Button className="bg-blue-500" >
-        <TypographyP>Connect Wallet</TypographyP>
-      </Button>
+      <ConnectButton />
     </div>
   </div>)
 }
