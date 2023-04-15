@@ -14,6 +14,7 @@ const settings = {
 
 async function main() {
   const setting = settings[network.config.chainId || 1];
+  console.log(setting)
   const Factory = await ethers.getContractFactory("SimpleVote");
   const contract = await Factory.deploy(
     setting.offerManager,

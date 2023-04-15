@@ -4,11 +4,10 @@ pragma solidity 0.8.17;
 import "@intmax/interoperability-contracts/contracts/OfferManager.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/utils/Timers.sol";
-import "./VoteToken.sol";
 
 contract SimpleVote is Context {
-    OfferManager _offerManager;
-    uint256 _voteIntmaxAsset;
+    OfferManager public immutable _offerManager;
+    uint256 public immutable _voteIntmaxAsset;
 
     //TODO: optimization
     struct SimpleProposal {
@@ -43,6 +42,8 @@ contract SimpleVote is Context {
         _offerManager = OfferManager(offerManager);
         _voteIntmaxAsset = voteIntmaxAsset;
     }
+
+    receive() external payable {}
 
     function hashProposal(
         uint256 voteStart,
