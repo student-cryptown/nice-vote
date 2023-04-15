@@ -1476,6 +1476,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-label@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@radix-ui/react-label@npm:2.0.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-primitive": 1.0.2
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 060783add530507eec906481c5a0c5ef58921435c27726b249bbb95d6d0fb915246880a003388be2ba06420132dcd425167f83b1d76b07dd3c9d8c74c4111b60
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-navigation-menu@npm:^1.1.2":
   version: 1.1.2
   resolution: "@radix-ui/react-navigation-menu@npm:1.1.2"
@@ -5178,6 +5191,7 @@ __metadata:
   resolution: "frontend@workspace:packages/frontend"
   dependencies:
     "@radix-ui/react-avatar": ^1.0.2
+    "@radix-ui/react-label": ^2.0.1
     "@radix-ui/react-navigation-menu": ^1.1.2
     "@radix-ui/react-progress": ^1.0.2
     "@radix-ui/react-tabs": ^1.0.3

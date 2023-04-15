@@ -1,6 +1,6 @@
 import { TypographyH2, TypographyH4, TypographyP } from "@/components";
 import { useVote } from "@/hooks/useVote";
-import { dataTimeToText, extractTextBeforeNewline } from "@/utils";
+import { dataTimeToText, extractTextBeforeNewline, sumArray } from "@/utils";
 import { useRouter } from "next/router";
 
 export default function Vote() {
@@ -18,7 +18,10 @@ export default function Vote() {
           {vote.description}
         </TypographyP>
         <TypographyP className="text-right my-3">
-          {"Voting Period : " + dataTimeToText(vote.voteStart)[0] + " ~ " + dataTimeToText(vote.voteEnd)[1]}
+          <>
+            {"Voting Period : " + dataTimeToText(vote.voteStart)[0] + " ~ " + dataTimeToText(vote.voteEnd)[1]}<br></br>
+            {"Total votes cast : " + sumArray(vote.voteCount.map(v => v.toNumber()))}
+          </>
         </TypographyP>
         {vote.voteOptions.length == 2 ? <>
           <div className="md:flex gap-4 my-6">
