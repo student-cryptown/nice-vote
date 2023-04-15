@@ -27,7 +27,7 @@ export const VoteCard = ({
   return (
     <Link href={"/vote/" + id}>
       <div className="rounded-md border-2 h-full border-gray-800 pt-4 cursor-pointer hover:-translate-y-1">
-        <div className="px-4 pb-3 flex flex-col h-full">
+        <div className="px-4 pb-3 flex flex-col h-full ">
           <div className="flex-1">
             <TypographyH3 className="line-clamp-1">
               {extractTextBeforeNewline(vote.description)}
