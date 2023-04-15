@@ -1,4 +1,4 @@
-import { TypographyH2, TypographyH3, TypographyP } from "@/components";
+import { Avatar, AvatarImage, TypographyH2, TypographyH3, TypographyP } from "@/components";
 import { VoteModal } from "@/components/layout/Vote/VoteModal/VoteModal";
 import { useVote } from "@/hooks/useVote";
 import {
@@ -11,6 +11,7 @@ import {
 } from "@/utils";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useENSName } from "use-ens-name";
 
 export default function Vote() {
   const router = useRouter();
@@ -18,7 +19,7 @@ export default function Vote() {
   const { voteId } = router.query as { voteId: string };
   const vote = useVote(voteId);
   const [voteOption, setVoteOption] = useState<number | null>(null);
-
+  const proposerName = useENSName(vote ? vote.proposer : "");
   const handleVote = (voteOption: number) => {
     setVoteOption(voteOption);
     setOpen(true);
@@ -135,6 +136,19 @@ export default function Vote() {
         </>
       )
       }
+      {proposerName ? <div className="flex items-center gap-2 justify-end mt-4">
+        <div>
+          <Avatar className="w-10 h-10">
+            <AvatarImage src={"https://source.boringavatars.com/beam/120/" + proposerName} />
+          </Avatar>
+        </div>
+        <div className="max-w-[33%] flex items-center line-clamp-1">
+          <TypographyP>
+            {proposerName || ""}
+          </TypographyP>
+        </div>
+      </div>
+        : <></>}
     </>
   );
 }

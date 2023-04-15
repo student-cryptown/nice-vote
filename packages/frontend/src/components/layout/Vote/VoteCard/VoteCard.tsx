@@ -1,7 +1,8 @@
-import { TypographyH3, TypographyP } from "@/components/ui";
+import { Avatar, AvatarImage, TypographyH3, TypographyP } from "@/components/ui";
 import { useVote } from "@/hooks/useVote";
 import { extractTextBeforeNewline, sumArray } from "@/utils";
 import Link from "next/link";
+import { useENSName } from 'use-ens-name';
 
 export const VoteCard = ({
   id,
@@ -15,6 +16,7 @@ export const VoteCard = ({
   const vote = useVote(id);
 
   const nowDatetime = new Date().getTime();
+  const proposerName = useENSName(vote ? vote.proposer : "");
 
   if (!vote) return <></>;
   if (showOpenOnly && vote.voteEnd.toNumber() * 1000 < nowDatetime)
@@ -32,13 +34,25 @@ export const VoteCard = ({
           <TypographyP className="mt-2 line-clamp-3">
             {vote.description}
           </TypographyP>
-          <div className="flex items-center gap-2 justify-end mt-2">
+          <div className="flex items-center gap-2 justify-end mt-4">
             <div className="flex-1 flex items-center">
               <TypographyP>
-                {"Total votes cast : " +
-                  sumArray(vote.voteCounts.map((count) => count.toNumber()))}
+                {"Total votes cast : " + sumArray(vote.voteCounts.map((count) => count.toNumber()))}
               </TypographyP>
             </div>
+            {proposerName ? <>
+              <div>
+                <Avatar className="w-10 h-10">
+                  <AvatarImage src={"https://source.boringavatars.com/beam/120/" + proposerName} />
+                </Avatar>
+              </div>
+              <div className="max-w-[33%] flex items-center line-clamp-1">
+                <TypographyP>
+                  {proposerName || ""}
+                </TypographyP>
+              </div>
+            </>
+              : <></>}
           </div>
         </div>
       </div>
