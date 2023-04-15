@@ -19,10 +19,12 @@
     "ethers": "^5.4.7",
     "hardhat": "^2.13.1",
     "hardhat-gas-reporter": "^1.0.8",
+    "hardhat-gpt": "^0.0.12",
     "solidity-coverage": "^0.8.1"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.8.3",
+    "@openzeppelin/contracts-upgradeable": "^4.8.3",
     "dotenv": "^16.0.3",
     "ts-node": "^10.9.1",
     "typechain": "^8.1.1",
