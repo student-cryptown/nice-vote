@@ -681,10 +681,10 @@ __metadata:
 
 "@intmax/interoperability-contracts@file:../intmax-interoperability-plugin/contracts::locator=eth%40workspace%3Apackages%2Fethereum":
   version: 0.1.0
-  resolution: "@intmax/interoperability-contracts@file:../intmax-interoperability-plugin/contracts#../intmax-interoperability-plugin/contracts::hash=39d0bf&locator=eth%40workspace%3Apackages%2Fethereum"
+  resolution: "@intmax/interoperability-contracts@file:../intmax-interoperability-plugin/contracts#../intmax-interoperability-plugin/contracts::hash=42abfc&locator=eth%40workspace%3Apackages%2Fethereum"
   dependencies:
-    dotenv: ^16.0.2
-  checksum: 40b0a892d83692ee7071e94c8d73b2d6c9493d54fc6e1b1be41b485a5e03c351a7a51c8f00d8c6ba492d7fcebc74bbe94607acd69b153afe0830f2527ae86161
+    dotenv: ^16.0.3
+  checksum: a7f84757d484ed0954b9b13e06e03b3d3d7ac12d11e83616148ed9156ae225be06c9d8654dd1fbfc5e69d6fafad8eba5403b04c6da3b14c2d699e343defd4fcb
   languageName: node
   linkType: hard
 
@@ -4978,9 +4978,9 @@ __metadata:
   linkType: hard
 
 "dijkstrajs@npm:^1.0.1":
-  version: 1.0.2
-  resolution: "dijkstrajs@npm:1.0.2"
-  checksum: 8cd822441a26f190da24d69bfab7b433d080b09e069e41e046ac84e152f182a1ed9478d531b34126e000adaa7b73114a0f85fcac117a7d25b3edf302d57c0d09
+  version: 1.0.3
+  resolution: "dijkstrajs@npm:1.0.3"
+  checksum: 82ff2c6633f235dd5e6bed04ec62cdfb1f327b4d7534557bd52f18991313f864ee50654543072fff4384a92b643ada4d5452f006b7098dbdfad6c8744a8c9e08
   languageName: node
   linkType: hard
 
@@ -5018,7 +5018,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.0.2, dotenv@npm:^16.0.3":
+"dotenv@npm:^16.0.3":
   version: 16.0.3
   resolution: "dotenv@npm:16.0.3"
   checksum: afcf03f373d7a6d62c7e9afea6328e62851d627a4e73f2e12d0a8deae1cd375892004f3021883f8aec85932cd2834b091f568ced92b4774625b321db83b827f8
@@ -6767,7 +6767,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hardhat@npm:^2.13.1":
+"hardhat-gpt@npm:^0.0.12":
+  version: 0.0.12
+  resolution: "hardhat-gpt@npm:0.0.12"
+  dependencies:
+    glob: ^9.3.0
+    hardhat: ^2.13.0
+    openai: ^3.2.1
+    ramda: ^0.28.0
+  peerDependencies:
+    hardhat: "*"
+    openai: "*"
+  checksum: b900c973c7f89b976f34aa1b2a1d99d5c0e719c658fd923db53f930ca72162c8e6df8e0de3133d0cd14cc9dffbb2e69154d43f47e44249dc9042b1354273f064
+  languageName: node
+  linkType: hard
+
+"hardhat@npm:^2.13.0, hardhat@npm:^2.13.1":
   version: 2.14.0
   resolution: "hardhat@npm:2.14.0"
   dependencies:
@@ -8251,6 +8266,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimatch@npm:^8.0.2":
+  version: 8.0.4
+  resolution: "minimatch@npm:8.0.4"
+  dependencies:
+    brace-expansion: ^2.0.1
+  checksum: 2e46cffb86bacbc524ad45a6426f338920c529dd13f3a732cc2cf7618988ee1aae88df4ca28983285aca9e0f45222019ac2d14ebd17c1edadd2ee12221ab801a
+  languageName: node
+  linkType: hard
+
 "minimist@npm:^1.2.0, minimist@npm:^1.2.5, minimist@npm:^1.2.6":
   version: 1.2.8
   resolution: "minimist@npm:1.2.8"
@@ -9500,6 +9524,7 @@ __metadata:
   checksum: d125d8f86cd89303c33bad829388c49ca23197e16ccf8cd398dcbd81b026978f6543f5066c66825b25b1dfea7790a42edbeea82908e103474931789714ab86cd
   languageName: node
   linkType: hard
+
 "punycode@npm:^2.1.0, punycode@npm:^2.1.1":
   version: 2.3.0
   resolution: "punycode@npm:2.3.0"
