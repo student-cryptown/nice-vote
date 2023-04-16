@@ -5611,6 +5611,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eth-ens-namehash@npm:^2.0.8":
+  version: 2.0.8
+  resolution: "eth-ens-namehash@npm:2.0.8"
+  dependencies:
+    idna-uts46-hx: ^2.3.1
+    js-sha3: ^0.5.7
+  checksum: 40ce4aeedaa4e7eb4485c8d8857457ecc46a4652396981d21b7e3a5f922d5beff63c71cb4b283c935293e530eba50b329d9248be3c433949c6bc40c850c202a3
+  languageName: node
+  linkType: hard
+
 "eth-gas-reporter@npm:^0.2.25":
   version: 0.2.25
   resolution: "eth-gas-reporter@npm:0.2.25"
@@ -6219,6 +6229,7 @@ __metadata:
     tailwindcss: 3.3.1
     tailwindcss-animate: ^1.0.5
     typescript: 5.0.4
+    use-ens-name: ^0.1.8
     wagmi: ^0.12.10
   languageName: unknown
   linkType: soft
@@ -6756,22 +6767,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hardhat-gpt@npm:^0.0.12":
-  version: 0.0.12
-  resolution: "hardhat-gpt@npm:0.0.12"
-  dependencies:
-    glob: ^9.3.0
-    hardhat: ^2.13.0
-    openai: ^3.2.1
-    ramda: ^0.28.0
-  peerDependencies:
-    hardhat: "*"
-    openai: "*"
-  checksum: b900c973c7f89b976f34aa1b2a1d99d5c0e719c658fd923db53f930ca72162c8e6df8e0de3133d0cd14cc9dffbb2e69154d43f47e44249dc9042b1354273f064
-  languageName: node
-  linkType: hard
-
-"hardhat@npm:^2.13.0, hardhat@npm:^2.13.1":
+"hardhat@npm:^2.13.1":
   version: 2.14.0
   resolution: "hardhat@npm:2.14.0"
   dependencies:
@@ -7077,6 +7073,15 @@ __metadata:
   dependencies:
     safer-buffer: ">= 2.1.2 < 3.0.0"
   checksum: 3f60d47a5c8fc3313317edfd29a00a692cc87a19cac0159e2ce711d0ebc9019064108323b5e493625e25594f11c6236647d8e256fbe7a58f4a3b33b89e6d30bf
+  languageName: node
+  linkType: hard
+
+"idna-uts46-hx@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "idna-uts46-hx@npm:2.3.1"
+  dependencies:
+    punycode: 2.1.0
+  checksum: d434c3558d2bc1090eb90f978f995101f469cb26593414ac57aa082c9352e49972b332c6e4188b9b15538172ccfeae3121e5a19b96972a97e6aeb0676d86639c
   languageName: node
   linkType: hard
 
@@ -7568,7 +7573,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-sha3@npm:0.5.7":
+"js-sha3@npm:0.5.7, js-sha3@npm:^0.5.7":
   version: 0.5.7
   resolution: "js-sha3@npm:0.5.7"
   checksum: 973a28ea4b26cc7f12d2ab24f796e24ee4a71eef45a6634a052f6eb38cf8b2333db798e896e6e094ea6fa4dfe8e42a2a7942b425cf40da3f866623fd05bb91ea
@@ -8243,15 +8248,6 @@ __metadata:
   dependencies:
     brace-expansion: ^2.0.1
   checksum: 7564208ef81d7065a370f788d337cd80a689e981042cb9a1d0e6580b6c6a8c9279eba80010516e258835a988363f99f54a6f711a315089b8b42694f5da9d0d77
-  languageName: node
-  linkType: hard
-
-"minimatch@npm:^8.0.2":
-  version: 8.0.4
-  resolution: "minimatch@npm:8.0.4"
-  dependencies:
-    brace-expansion: ^2.0.1
-  checksum: 2e46cffb86bacbc524ad45a6426f338920c529dd13f3a732cc2cf7618988ee1aae88df4ca28983285aca9e0f45222019ac2d14ebd17c1edadd2ee12221ab801a
   languageName: node
   linkType: hard
 
@@ -9498,6 +9494,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"punycode@npm:2.1.0":
+  version: 2.1.0
+  resolution: "punycode@npm:2.1.0"
+  checksum: d125d8f86cd89303c33bad829388c49ca23197e16ccf8cd398dcbd81b026978f6543f5066c66825b25b1dfea7790a42edbeea82908e103474931789714ab86cd
+  languageName: node
+  linkType: hard
 "punycode@npm:^2.1.0, punycode@npm:^2.1.1":
   version: 2.3.0
   resolution: "punycode@npm:2.3.0"
@@ -11535,6 +11537,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 7913df383a5a6fcb399212eedefaac2e0c6f843555202d4e3010bac3848afe38ecaa3d0d6500ad1d936fbeffd637e6c517e68edb024af5e6beca7f27f3ce7b21
+  languageName: node
+  linkType: hard
+
+"use-ens-name@npm:^0.1.8":
+  version: 0.1.8
+  resolution: "use-ens-name@npm:0.1.8"
+  dependencies:
+    eth-ens-namehash: ^2.0.8
+  checksum: dcba8b3e94a992d95bfb9e746c42d5087eadd53ed2a6723c69faed876ac1726e995d895636e7c0722b85d9d9b372d6c1fcf6348f86f9068f0ae642ec33d5160b
   languageName: node
   linkType: hard
 

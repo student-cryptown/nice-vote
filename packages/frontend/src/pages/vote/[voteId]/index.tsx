@@ -1,15 +1,17 @@
-import { TypographyH2, TypographyP } from "@/components";
+import { Avatar, AvatarImage, TypographyH2, TypographyH3, TypographyP } from "@/components";
 import { VoteModal } from "@/components/layout/Vote/VoteModal/VoteModal";
 import { useVote } from "@/hooks/useVote";
 import {
   cn,
   dataTimeToText,
   extractTextBeforeNewline,
+  findLargestIndexes,
   isLargestValue,
   sumArray,
 } from "@/utils";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useENSName } from "use-ens-name";
 
 export default function Vote() {
   const router = useRouter();
@@ -17,7 +19,7 @@ export default function Vote() {
   const { voteId } = router.query as { voteId: string };
   const vote = useVote(voteId);
   const [voteOption, setVoteOption] = useState<number | null>(null);
-
+  const proposerName = useENSName(vote ? vote.proposer : "");
   const handleVote = (voteOption: number) => {
     setVoteOption(voteOption);
     setOpen(true);
@@ -53,6 +55,11 @@ export default function Vote() {
             sumArray(vote.voteCounts.map((v) => v.toNumber()))}
         </>
       </TypographyP>
+      {isFinalized ?
+        <TypographyH3 className="text-center">
+          {"Result : " + findLargestIndexes(vote.voteCounts.map(v => v.toNumber())).map(_i => vote.voteOptions[_i]).join(",")}
+        </TypographyH3>
+        : <></>}
       {vote.voteOptions.length == 2 ? (
         <>
           <div className="md:flex gap-4 my-6">
@@ -64,27 +71,24 @@ export default function Vote() {
               return (
                 <button
                   key={index}
-                  onClick={() => handleVote(index)}
+                  onClick={() => { !isFinalized ? handleVote(index) : () => void 0 }}
                   className={cn([
-                    "flex-1 h-36 font-bold relative rounded-md flex max-md:w-full my-2 items-center text-2xl",
+                    "flex-1 h-36 font-bold relative rounded-md flex max-md:w-full my-2 items-center text-2xl p-0",
                     isFinalized
-                      ? isLargest &&
-                        vote.voteCounts.map((v) => v.toNumber())[index] != 0
-                        ? "bg-purple-400"
-                        : "bg-gray-100"
-                      : "bg-gray-200 hover:bg-gray-100 border-4 border-gray-200",
+                      ? "bg-gray-100"
+                      : "bg-gray-200",
                   ])}
                 >
-                  <span className="z-20 w-full text-center">
+                  <span className="z-20 w-full text-center relative">
                     {option}
                     {isFinalized ? " : " + vote.voteCounts[index] : ""}
                   </span>
                   <div
-                    className={"h-36 bg-red-200 absolute rounded-md"}
+                    className={"h-36 z-0 bg-red-200 absolute rounded-md"}
                     style={{
                       width: `${Math.floor(
                         vote.voteCounts.map((v) => v.toNumber())[index] /
-                          sumArray(vote.voteCounts.map((v) => v.toNumber()))
+                        sumArray(vote.voteCounts.map((v) => v.toNumber())) * 100
                       )}%`,
                     }}
                   ></div>
@@ -104,27 +108,46 @@ export default function Vote() {
               return (
                 <button
                   key={index}
-                  onClick={() => handleVote(index)}
+                  onClick={() => { !isFinalized ? handleVote(index) : () => void 0 }}
                   className={cn([
-                    "flex-1 h-24 font-bold rounded-md w-full my-2 items-center justify-center text-xl",
+                    "flex-1 h-24 font-bold relative rounded-md w-full my-2 items-center justify-center text-xl",
                     isFinalized
-                      ? isLargest &&
-                        vote.voteCounts.map((v) => v.toNumber())[index] != 0
-                        ? "bg-purple-400"
-                        : "bg-gray-100"
-                      : "bg-gray-200 hover:bg-gray-100 border-4 border-gray-200",
+                      ? "bg-gray-100"
+                      : "bg-gray-200",
                   ])}
                 >
-                  <span>
+                  <span className="z-20 w-full text-center relative">
                     {option}
                     {isFinalized ? " : " + vote.voteCounts[index] : ""}
                   </span>
+                  <div
+                    className={"h-24 z-0 bg-red-200 absolute top-0 left-0 rounded-md"}
+                    style={{
+                      width: `${Math.floor(
+                        vote.voteCounts.map((v) => v.toNumber())[index] /
+                        sumArray(vote.voteCounts.map((v) => v.toNumber())) * 100
+                      )}%`,
+                    }}
+                  ></div>
                 </button>
               );
             })}
           </div>
         </>
-      )}
+      )
+      }
+      <div className="flex items-center gap-2 justify-end mt-4">
+        <div>
+          <Avatar className="w-10 h-10">
+            <AvatarImage src={"https://source.boringavatars.com/beam/120/" + (proposerName || vote.proposer)} />
+          </Avatar>
+        </div>
+        <div className="max-w-[33%] flex items-center line-clamp-1">
+          <TypographyP>
+            {proposerName || vote.proposer}
+          </TypographyP>
+        </div>
+      </div>
     </>
   );
 }
