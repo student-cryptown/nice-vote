@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.17;
 
-import "@intmax/interoperability-contracts/contracts/OfferManager.sol";
+import "@intmax/interoperability-contracts/contracts/OfferManagerV2.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/utils/Timers.sol";
 
 contract SimpleVote is Context {
-    OfferManager public immutable _offerManager;
+    OfferManagerV2 public immutable _offerManager;
     uint256 public immutable _voteIntmaxAsset;
 
     //TODO: optimization
@@ -39,7 +39,7 @@ contract SimpleVote is Context {
     mapping(bytes32 => SimpleProposal) private proposals;
 
     constructor(address offerManager, uint256 voteIntmaxAsset) {
-        _offerManager = OfferManager(offerManager);
+        _offerManager = OfferManagerV2(offerManager);
         _voteIntmaxAsset = voteIntmaxAsset;
     }
 
@@ -99,13 +99,13 @@ contract SimpleVote is Context {
         bytes32 proposalHash,
         bytes32 voterIntmaxAddress,
         uint256 voteCount,
-        uint256 voteOption
+        uint256 voteOption,
+        bytes memory witness
     ) public {
         require(isVoting(proposalHash), "Vote is not active");
         require(voteOption < proposals[proposalHash].voteOptions.length, "Invalid vote option");
 
-        //TODO: Check if the voter has burned the vote token
-        //_offerManager.checkBurned(voterIntmaxAddress, _voteIntmaxAsset, voteCount);
+        //多分これでいいのか？まるで魔法だぜ
         uint256 offerId = _offerManager.register(
             voterIntmaxAddress,
             _voteIntmaxAsset,
@@ -113,7 +113,8 @@ contract SimpleVote is Context {
             address(this),
             bytes32(_voteIntmaxAsset),
             address(0),
-            0
+            0,
+            witness
         );
         _offerManager.activate(offerId);
 
