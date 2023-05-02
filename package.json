@@ -5,7 +5,7 @@
   "repository": "https://github.com/student-cryptown/nice-qv.git",
   "author": "inaridiy <inainainariinainari@gmail.com>",
   "license": "MIT",
-  "packageManager": "yarn@3.5.0",
+  "packageManager": "yarn@3.5.1",
   "workspaces": [
     "packages/*"
   ]

@@ -681,10 +681,10 @@ __metadata:
 
 "@intmax/interoperability-contracts@file:../intmax-interoperability-plugin/contracts::locator=eth%40workspace%3Apackages%2Fethereum":
   version: 0.1.0
-  resolution: "@intmax/interoperability-contracts@file:../intmax-interoperability-plugin/contracts#../intmax-interoperability-plugin/contracts::hash=42abfc&locator=eth%40workspace%3Apackages%2Fethereum"
+  resolution: "@intmax/interoperability-contracts@file:../intmax-interoperability-plugin/contracts#../intmax-interoperability-plugin/contracts::hash=c4039c&locator=eth%40workspace%3Apackages%2Fethereum"
   dependencies:
-    dotenv: ^16.0.3
-  checksum: a7f84757d484ed0954b9b13e06e03b3d3d7ac12d11e83616148ed9156ae225be06c9d8654dd1fbfc5e69d6fafad8eba5403b04c6da3b14c2d699e343defd4fcb
+    dotenv: ^16.0.2
+  checksum: d375f87192f27aed94e7e744989757055d11b800806e3a56197304a3df2daa01c9d106fdfe22db8e5da6541266f3e829e1b256fffa568aa32a568162a079fb7b
   languageName: node
   linkType: hard
 
@@ -5018,7 +5018,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.0.3":
+"dotenv@npm:^16.0.2, dotenv@npm:^16.0.3":
   version: 16.0.3
   resolution: "dotenv@npm:16.0.3"
   checksum: afcf03f373d7a6d62c7e9afea6328e62851d627a4e73f2e12d0a8deae1cd375892004f3021883f8aec85932cd2834b091f568ced92b4774625b321db83b827f8
@@ -11427,11 +11427,11 @@ __metadata:
 
 "typescript@patch:typescript@5.0.4#~builtin<compat/typescript>, typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
   version: 5.0.4
-  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"
+  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: bb309d320c59a26565fb3793dba550576ab861018ff3fd1b7fccabbe46ae4a35546bc45f342c0a0b6f265c801ccdf64ffd68f548f117ceb7f0eac4b805cd52a9
+  checksum: d26b6ba97b6d163c55dbdffd9bbb4c211667ebebc743accfeb2c8c0154aace7afd097b51165a72a5bad2cf65a4612259344ff60f8e642362aa1695c760d303ac
   languageName: node
   linkType: hard
 
